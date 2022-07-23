@@ -48,7 +48,11 @@ $pocetniBrojRedova = mysqli_num_rows($rezultat1);
 foreach($sheetData as $i => $row){
     if($i == 0){
 
-    } else {
+    } else if($row[2]=="" || $row[1]=="" || $row[3]==""){
+        header("location: klijenti.php?nisuUneseniSviPodaci");
+    }
+    
+    else {
         $sql .= "('$row[1]', '$row[2]', $row[3], '$row[4]')," ;
     }
     }
